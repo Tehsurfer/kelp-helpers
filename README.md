@@ -26,6 +26,12 @@ Each tile has a unique ID in the format `T000001`, `T000002`, etc. Tile selectio
 ---
 
 ## 🛠️ Installation
+Use your own Mapbox API key replace 
+```
+mapboxgl.accessToken = 'XXXXXXXXX';
+
+```
+in app.js
 
 Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
 
