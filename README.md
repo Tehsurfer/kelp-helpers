@@ -4,9 +4,6 @@ This React application generates a 100m x 100m interactive tile grid on a Mapbox
 
 Each tile has a unique ID in the format `T000001`, `T000002`, etc. Tile selection updates the panel dynamically, and the layout adapts for mobile users.
 
-## 🌐 Demo
-> _Add link here if hosted (e.g., Netlify, Vercel, GitHub Pages)_
-
 ---
 
 ## 🚀 Features
