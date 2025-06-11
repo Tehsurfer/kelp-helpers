@@ -95,7 +95,9 @@ function App() {
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [lng, lat],
-      zoom: zoom
+      zoom: zoom,
+      pitch: 60, // Tilt the map for isometric view
+      bearing: -17.6 // Optional: rotate for a more isometric angle
     });
 
     map.current.on('move', () => {
