@@ -2,8 +2,8 @@ import './App.css';
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = 'XXXXXXXXX';
-const dataGateWayURL = 'https://dbjzfo0nxd.execute-api.ap-southeast-2.amazonaws.com/Prod/data-handler';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+const dataGateWayURL = process.env.REACT_APP_DATA_GATEWAY_URL;
 
 const makeApiRequest = async (payload) => {
   try {
