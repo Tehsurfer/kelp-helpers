@@ -1,9 +1,9 @@
 import './App.css';
 import React, { useRef, useEffect, useState } from 'react';
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-const dataGateWayURL = process.env.REACT_APP_DATA_GATEWAY_URL;
+mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
+const dataGateWayURL = import.meta.env.VITE_REACT_APP_DATA_GATEWAY_URL;
 
 const makeApiRequest = async (payload) => {
   try {
