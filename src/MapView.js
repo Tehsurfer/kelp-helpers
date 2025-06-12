@@ -63,6 +63,25 @@ function generateGrid(bounds, spacing = 100) {
   };
 }
 
+// Helper to sample 5 points: 4 corners and center
+function sample5Points(polygon) {
+  const coords = polygon.geometry.coordinates[0];
+  const [lng1, lat1] = coords[0]; // bottom-left
+  const [lng2, lat2] = coords[1]; // bottom-right
+  const [lng3, lat3] = coords[2]; // top-right
+  const [lng4, lat4] = coords[3]; // top-left
+  // Center
+  const centerLng = (lng1 + lng3) / 2;
+  const centerLat = (lat1 + lat3) / 2;
+  return [
+    [lng1, lat1], // bottom-left
+    [lng2, lat2], // bottom-right
+    [lng3, lat3], // top-right
+    [lng4, lat4], // top-left
+    [centerLng, centerLat] // center
+  ];
+}
+
 function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -94,14 +113,42 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
       setZoom(map.current.getZoom().toFixed(2));
     });
 
-    map.current.on('load', () => {
+    map.current.on('load', async () => {
       const bounds = map.current.getBounds();
       const grid = generateGrid(bounds);
-      setGridData(grid);
+      const filteredFeatures = [];
+
+      for (const polygon of grid.features) {
+        const points = sample5Points(polygon);
+        let hasWater = false;
+        let hasLand = false;
+        for (const [lng, lat] of points) {
+          const features = map.current.queryRenderedFeatures(
+            map.current.project([lng, lat]),
+            { layers: ['water'] }
+          );
+          console.log('Features at point:', features);
+          if (features.length > 0) {
+            hasWater = true;
+          } else {
+            hasLand = true;
+          }
+          if (hasWater && hasLand) break;
+        }
+        if (hasWater && hasLand) {
+          filteredFeatures.push(polygon);
+        }
+      }
+
+      const filteredGrid = {
+        type: 'FeatureCollection',
+        features: filteredFeatures
+      };
+      setGridData(filteredGrid);
 
       map.current.addSource('grid', {
         type: 'geojson',
-        data: grid
+        data: filteredGrid
       });
 
       map.current.addLayer({
@@ -157,6 +204,14 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
 
   const handleMapClick = (e) => {
     const { lng, lat } = e.lngLat;
+    
+    // playing around with how to find the coastline
+    const features = map.current.queryRenderedFeatures(
+        map.current.project([lng, lat]), 
+        { layers: ['water'] }
+    );
+    const isOcean = features.length > 0;
+    console.log('Ocean click:', isOcean);
 
     if (isMobile) {
       map.current.flyTo({
