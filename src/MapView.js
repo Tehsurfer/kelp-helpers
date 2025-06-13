@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import coastlineTiles from './data/coastline-tiles';
 
 mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
 const dataGateWayURL = import.meta.env.VITE_REACT_APP_DATA_GATEWAY_URL;
@@ -114,37 +115,63 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
     });
 
     map.current.on('load', async () => {
-      const bounds = map.current.getBounds();
-      const grid = generateGrid(bounds);
-      const filteredFeatures = [];
-
-      for (const polygon of grid.features) {
-        const points = sample5Points(polygon);
-        let hasWater = false;
-        let hasLand = false;
-        for (const [lng, lat] of points) {
-          const features = map.current.queryRenderedFeatures(
-            map.current.project([lng, lat]),
-            { layers: ['water'] }
-          );
-          console.log('Features at point:', features);
-          if (features.length > 0) {
-            hasWater = true;
-          } else {
-            hasLand = true;
-          }
-          if (hasWater && hasLand) break;
-        }
-        if (hasWater && hasLand) {
-          filteredFeatures.push(polygon);
+      // Try to load from saved data first
+      let filteredGrid = null;
+      const presetCoastTiles = coastlineTiles
+      if (presetCoastTiles) {
+        try {
+          console.log('about to use preset coastline tiles:')
+          filteredGrid = presetCoastTiles
+          setGridData(presetCoastTiles);
+          console.log('Using preset coastline tiles:', presetCoastTiles);
+        } catch (e) {
+          console.warn('Failed to parse cached filteredGrid:', e);
         }
       }
 
-      const filteredGrid = {
-        type: 'FeatureCollection',
-        features: filteredFeatures
-      };
-      setGridData(filteredGrid);
+      if (!filteredGrid) {
+        console.log('Generating grid from map bounds...');
+        const bounds = map.current.getBounds();
+        const grid = generateGrid(bounds);
+        const filteredFeatures = [];
+
+        // Sample 5 points from each polygon to check for water and land
+        for (const polygon of grid.features) {
+          const points = sample5Points(polygon);
+          let hasWater = false;
+          let hasLand = false;
+          for (const [lng, lat] of points) {
+            const features = map.current.queryRenderedFeatures(
+              map.current.project([lng, lat])
+            );
+            if (features.length > 0) {
+              for (let i = 0; i < features.length; i++) {
+                const feature = features[i];
+                if (feature.layer.id === 'water') {
+                  hasWater = true;
+                // Everything but the water-shadow layer will be land (There are a lot of ferry routes that show up otherwise)
+                } else if (feature.layer.id !== 'water-shadow') {
+                  hasLand = true;
+                }
+                if (hasWater && hasLand) break;
+              }
+            }
+          }
+          // Only keep polygons that have both water and land
+          // This is a bit of a hack, but it works for now
+          if (hasWater && hasLand) {
+            filteredFeatures.push(polygon);
+          }
+        }
+
+        filteredGrid = {
+          type: 'FeatureCollection',
+          features: filteredFeatures
+        };
+        setGridData(filteredGrid);
+        // Save to localStorage to then use to populate coastline-tiles.js
+        localStorage.setItem('filteredGrid', JSON.stringify(filteredGrid));
+      }
 
       map.current.addSource('grid', {
         type: 'geojson',
