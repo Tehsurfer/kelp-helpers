@@ -24,7 +24,7 @@ function Home() {
           zIndex: -1, // <-- ensure video is always behind everything
         }}
       >
-        <source src="../public/wellington-reef.mp4" type="video/mp4" />
+        <source src="/wellington-reef.mp4" type="video/mp4" />
         {/* Optionally add a webm/ogg fallback */}
       </video>
       {/* Content */}
