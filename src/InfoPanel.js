@@ -3,6 +3,7 @@ import coastlineTiles from './data/coastline-tiles-with-data.json'
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
+import Carousel from 'react-material-ui-carousel';
 
 function InfoPanel({ info, onClose, tileId, className }) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -30,7 +31,7 @@ function InfoPanel({ info, onClose, tileId, className }) {
       
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 1 }}>
         <Chip
-          label="Sponsored"
+          label="Sponsorship"
           color="primary"
           sx={{
             fontWeight: 'bold',
@@ -89,13 +90,21 @@ function InfoPanel({ info, onClose, tileId, className }) {
         Snapper estimated: {tileInfo.snapperEstimated || 'N/A'}
       </p>
       
-      <div className="image-slider">
-        <img src={images[currentImage]} alt={`Slide ${currentImage + 1}`} />
-        <div className="slider-controls">
-          <button onClick={() => setCurrentImage((prev) => (prev > 0 ? prev - 1 : images.length - 1))}>&#10094;</button>
-          <button onClick={() => setCurrentImage((prev) => (prev < images.length - 1 ? prev + 1 : 0))}>&#10095;</button>
-        </div>
-      </div>
+      {/* Replace image-slider with Material UI Carousel */}
+      <Box sx={{ my: 2 }}>
+        <Carousel
+          navButtonsAlwaysVisible
+          indicators={false}
+          autoPlay={false}
+          sx={{ borderRadius: 2, overflow: 'hidden' }}
+        >
+          {images.map((src, idx) => (
+            <Box key={idx} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 300, bgcolor: '#fafafa' }}>
+              <img src={src} alt={`Slide ${idx + 1}`} style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'cover' }} />
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
       <button className="action-button">Learn More</button>
     </div>
   );
