@@ -12,9 +12,10 @@ code {
     monospace;
 }
 .map-container {
-  height: 800px;
+  width: 100%;
+  min-height: 800px;
 }
-.sidebar {
+.lat-long-info {
   background-color: rgb(35 55 75 / 90%);
   color: #fff;
   padding: 6px 12px;

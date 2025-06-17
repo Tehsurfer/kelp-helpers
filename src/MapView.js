@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import InfoPanel from './InfoPanel';
 import coastlineTiles from './data/coastline-tiles';
 
 mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
@@ -91,6 +92,15 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
   const [zoom, setZoom] = useState(14);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [gridData, setGridData] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      setPopupInfo(null);
+    }, 300); // adjust for CSS animation duration if needed
+  };
 
   useEffect(() => {
     makeApiRequest({ action: 'test', user: '123' });
@@ -257,11 +267,20 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
   };
 
   return (
-    <div>
-      <div className="sidebar">
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div className='lat-long-info'
+      >
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
       <div ref={mapContainer} className="map-container" />
+      {popupInfo && (
+        <InfoPanel
+          info={popupInfo}
+          onClose={handleClose}
+          tileId={selectedTileId}
+          className={isClosing ? 'closing' : ''}
+        />
+      )}
     </div>
   );
 }
