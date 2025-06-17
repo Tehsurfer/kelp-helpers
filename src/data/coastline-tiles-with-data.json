@@ -1,0 +1,506 @@
+[
+  {
+    "id": "T000045",
+    "name": "Pink Snapper Glade",
+    "sponsorAmount": 66,
+    "urchinsEstimated": 523,
+    "kelpEstimated": 493,
+    "snapperEstimated": 285,
+    "reefHealth": 0.75945
+  },
+  {
+    "id": "T000046",
+    "name": "Ocean Urchin Shard",
+    "sponsorAmount": 94,
+    "urchinsEstimated": 547,
+    "kelpEstimated": 183,
+    "snapperEstimated": 138,
+    "reefHealth": 0.5648500000000001
+  },
+  {
+    "id": "T000047",
+    "name": "Gold Fern Sweep",
+    "sponsorAmount": 32,
+    "urchinsEstimated": 485,
+    "kelpEstimated": 185,
+    "snapperEstimated": 220,
+    "reefHealth": 0.6294166666666667
+  },
+  {
+    "id": "T000048",
+    "name": "Silver Fern Rise",
+    "sponsorAmount": 61,
+    "urchinsEstimated": 197,
+    "kelpEstimated": 260,
+    "snapperEstimated": 298,
+    "reefHealth": 0.7471166666666667
+  },
+  {
+    "id": "T000126",
+    "name": "Bronze Glow Shine",
+    "sponsorAmount": 16,
+    "urchinsEstimated": 917,
+    "kelpEstimated": 352,
+    "snapperEstimated": 137,
+    "reefHealth": 0.5593833333333333
+  },
+  {
+    "id": "T000127",
+    "name": "Copper Toroa Surge",
+    "sponsorAmount": 41,
+    "urchinsEstimated": 614,
+    "kelpEstimated": 376,
+    "snapperEstimated": 23,
+    "reefHealth": 0.5360333333333334
+  },
+  {
+    "id": "T000128",
+    "name": "Gold Tide Song",
+    "sponsorAmount": 26,
+    "urchinsEstimated": 345,
+    "kelpEstimated": 9,
+    "snapperEstimated": 205,
+    "reefHealth": 0.5876166666666667
+  },
+  {
+    "id": "T000129",
+    "name": "Copper Driftwood Nest",
+    "sponsorAmount": 31,
+    "urchinsEstimated": 261,
+    "kelpEstimated": 448,
+    "snapperEstimated": 147,
+    "reefHealth": 0.69325
+  },
+  {
+    "id": "T000209",
+    "name": "Gold Driftwood Glade",
+    "sponsorAmount": 53,
+    "urchinsEstimated": 331,
+    "kelpEstimated": 277,
+    "snapperEstimated": 160,
+    "reefHealth": 0.6401166666666667
+  },
+  {
+    "id": "T000210",
+    "name": "Copper Rimu Crest",
+    "sponsorAmount": 16,
+    "urchinsEstimated": 628,
+    "kelpEstimated": 496,
+    "snapperEstimated": 158,
+    "reefHealth": 0.6599333333333333
+  },
+  {
+    "id": "T001330",
+    "name": "Bronze Driftwood Tide",
+    "sponsorAmount": 16,
+    "urchinsEstimated": 438,
+    "kelpEstimated": 464,
+    "snapperEstimated": 146,
+    "reefHealth": 0.6708333333333334
+  },
+  {
+    "id": "T001331",
+    "name": "Copper Toroa Flicker",
+    "sponsorAmount": 86,
+    "urchinsEstimated": 756,
+    "kelpEstimated": 392,
+    "snapperEstimated": 6,
+    "reefHealth": 0.5082
+  },
+  {
+    "id": "T001332",
+    "name": "Gold Fern Hollow",
+    "sponsorAmount": 82,
+    "urchinsEstimated": 917,
+    "kelpEstimated": 368,
+    "snapperEstimated": 225,
+    "reefHealth": 0.62285
+  },
+  {
+    "id": "T001333",
+    "name": "Steel Tide Dance",
+    "sponsorAmount": 83,
+    "urchinsEstimated": 857,
+    "kelpEstimated": 399,
+    "snapperEstimated": 23,
+    "reefHealth": 0.5064833333333333
+  },
+  {
+    "id": "T001414",
+    "name": "Silver Paua Surge",
+    "sponsorAmount": 89,
+    "urchinsEstimated": 877,
+    "kelpEstimated": 82,
+    "snapperEstimated": 113,
+    "reefHealth": 0.4683833333333333
+  },
+  {
+    "id": "T001415",
+    "name": "Silver Reef Nest",
+    "sponsorAmount": 90,
+    "urchinsEstimated": 612,
+    "kelpEstimated": 12,
+    "snapperEstimated": 70,
+    "reefHealth": 0.4584666666666667
+  },
+  {
+    "id": "T001416",
+    "name": "Gold Fern Dance",
+    "sponsorAmount": 93,
+    "urchinsEstimated": 855,
+    "kelpEstimated": 41,
+    "snapperEstimated": 232,
+    "reefHealth": 0.5387166666666667
+  },
+  {
+    "id": "T001417",
+    "name": "Gold Driftwood Shadow",
+    "sponsorAmount": 8,
+    "urchinsEstimated": 432,
+    "kelpEstimated": 288,
+    "snapperEstimated": 178,
+    "reefHealth": 0.6402666666666667
+  },
+  {
+    "id": "T001418",
+    "name": "Gold Toroa Hollow",
+    "sponsorAmount": 65,
+    "urchinsEstimated": 336,
+    "kelpEstimated": 330,
+    "snapperEstimated": 65,
+    "reefHealth": 0.5919333333333333
+  },
+  {
+    "id": "T001419",
+    "name": "Copper Urchin Tide",
+    "sponsorAmount": 92,
+    "urchinsEstimated": 623,
+    "kelpEstimated": 183,
+    "snapperEstimated": 210,
+    "reefHealth": 0.60145
+  },
+  {
+    "id": "T001497",
+    "name": "Gold Weka Mist",
+    "sponsorAmount": 97,
+    "urchinsEstimated": 131,
+    "kelpEstimated": 65,
+    "snapperEstimated": 171,
+    "reefHealth": 0.61385
+  },
+  {
+    "id": "T001498",
+    "name": "Gold Fern Rise",
+    "sponsorAmount": 81,
+    "urchinsEstimated": 306,
+    "kelpEstimated": 364,
+    "snapperEstimated": 37,
+    "reefHealth": 0.5879666666666666
+  },
+  {
+    "id": "T001502",
+    "name": "Silver Tui Blaze",
+    "sponsorAmount": 17,
+    "urchinsEstimated": 700,
+    "kelpEstimated": 98,
+    "snapperEstimated": 88,
+    "reefHealth": 0.48306666666666664
+  },
+  {
+    "id": "T001503",
+    "name": "Steel Tide Shard",
+    "sponsorAmount": 99,
+    "urchinsEstimated": 731,
+    "kelpEstimated": 163,
+    "snapperEstimated": 59,
+    "reefHealth": 0.47858333333333336
+  },
+  {
+    "id": "T001581",
+    "name": "Copper Kelp Glade",
+    "sponsorAmount": 89,
+    "urchinsEstimated": 267,
+    "kelpEstimated": 386,
+    "snapperEstimated": 173,
+    "reefHealth": 0.6910833333333333
+  },
+  {
+    "id": "T001582",
+    "name": "Copper Glow Crest",
+    "sponsorAmount": 48,
+    "urchinsEstimated": 631,
+    "kelpEstimated": 284,
+    "snapperEstimated": 257,
+    "reefHealth": 0.6618833333333334
+  },
+  {
+    "id": "T001587",
+    "name": "Bronze Wai Song",
+    "sponsorAmount": 13,
+    "urchinsEstimated": 498,
+    "kelpEstimated": 326,
+    "snapperEstimated": 260,
+    "reefHealth": 0.6964333333333333
+  },
+  {
+    "id": "T001588",
+    "name": "Steel Rimu Sweep",
+    "sponsorAmount": 80,
+    "urchinsEstimated": 922,
+    "kelpEstimated": 1,
+    "snapperEstimated": 51,
+    "reefHealth": 0.396
+  },
+  {
+    "id": "T001666",
+    "name": "Bronze Rimu Mist",
+    "sponsorAmount": 60,
+    "urchinsEstimated": 577,
+    "kelpEstimated": 192,
+    "snapperEstimated": 104,
+    "reefHealth": 0.5403833333333333
+  },
+  {
+    "id": "T001667",
+    "name": "Gold Glow Song",
+    "sponsorAmount": 26,
+    "urchinsEstimated": 469,
+    "kelpEstimated": 140,
+    "snapperEstimated": 113,
+    "reefHealth": 0.5469833333333334
+  },
+  {
+    "id": "T001668",
+    "name": "Steel Coral Shine",
+    "sponsorAmount": 4,
+    "urchinsEstimated": 779,
+    "kelpEstimated": 419,
+    "snapperEstimated": 94,
+    "reefHealth": 0.5715166666666667
+  },
+  {
+    "id": "T001669",
+    "name": "Bronze Driftwood Drift",
+    "sponsorAmount": 6,
+    "urchinsEstimated": 489,
+    "kelpEstimated": 81,
+    "snapperEstimated": 222,
+    "reefHealth": 0.59895
+  },
+  {
+    "id": "T001671",
+    "name": "Copper Coral Veil",
+    "sponsorAmount": 72,
+    "urchinsEstimated": 523,
+    "kelpEstimated": 409,
+    "snapperEstimated": 149,
+    "reefHealth": 0.6435833333333333
+  },
+  {
+    "id": "T001672",
+    "name": "Gold Urchin Song",
+    "sponsorAmount": 25,
+    "urchinsEstimated": 205,
+    "kelpEstimated": 326,
+    "snapperEstimated": 19,
+    "reefHealth": 0.5797166666666667
+  },
+  {
+    "id": "T001751",
+    "name": "Steel Glow Shadow",
+    "sponsorAmount": 8,
+    "urchinsEstimated": 968,
+    "kelpEstimated": 356,
+    "snapperEstimated": 182,
+    "reefHealth": 0.5829333333333333
+  },
+  {
+    "id": "T001752",
+    "name": "Copper Glow Shard",
+    "sponsorAmount": 77,
+    "urchinsEstimated": 309,
+    "kelpEstimated": 182,
+    "snapperEstimated": 127,
+    "reefHealth": 0.5929166666666666
+  },
+  {
+    "id": "T001753",
+    "name": "Bronze Tide Dance",
+    "sponsorAmount": 67,
+    "urchinsEstimated": 222,
+    "kelpEstimated": 157,
+    "snapperEstimated": 170,
+    "reefHealth": 0.6271333333333333
+  },
+  {
+    "id": "T001754",
+    "name": "Gold Tide Hollow",
+    "sponsorAmount": 21,
+    "urchinsEstimated": 957,
+    "kelpEstimated": 349,
+    "snapperEstimated": 280,
+    "reefHealth": 0.6478166666666667
+  },
+  {
+    "id": "T001755",
+    "name": "Gold Weka Bloom",
+    "sponsorAmount": 44,
+    "urchinsEstimated": 139,
+    "kelpEstimated": 176,
+    "snapperEstimated": 213,
+    "reefHealth": 0.67395
+  },
+  {
+    "id": "T001909",
+    "name": "Silver Kina Glade",
+    "sponsorAmount": 78,
+    "urchinsEstimated": 528,
+    "kelpEstimated": 454,
+    "snapperEstimated": 227,
+    "reefHealth": 0.7083333333333333
+  },
+  {
+    "id": "T001910",
+    "name": "Steel Glow Blaze",
+    "sponsorAmount": 59,
+    "urchinsEstimated": 172,
+    "kelpEstimated": 151,
+    "snapperEstimated": 259,
+    "reefHealth": 0.6921666666666666
+  },
+  {
+    "id": "T001991",
+    "name": "Silver Tui Tide",
+    "sponsorAmount": 68,
+    "urchinsEstimated": 153,
+    "kelpEstimated": 408,
+    "snapperEstimated": 83,
+    "reefHealth": 0.6547833333333333
+  },
+  {
+    "id": "T001992",
+    "name": "Copper Weka Flicker",
+    "sponsorAmount": 85,
+    "urchinsEstimated": 209,
+    "kelpEstimated": 75,
+    "snapperEstimated": 228,
+    "reefHealth": 0.64315
+  },
+  {
+    "id": "T001993",
+    "name": "Steel Glow Bloom",
+    "sponsorAmount": 10,
+    "urchinsEstimated": 476,
+    "kelpEstimated": 166,
+    "snapperEstimated": 96,
+    "reefHealth": 0.5424
+  },
+  {
+    "id": "T001994",
+    "name": "Gold Weka Hollow",
+    "sponsorAmount": 83,
+    "urchinsEstimated": 233,
+    "kelpEstimated": 201,
+    "snapperEstimated": 104,
+    "reefHealth": 0.5946833333333333
+  },
+  {
+    "id": "T002075",
+    "name": "Gold Paua Sweep",
+    "sponsorAmount": 43,
+    "urchinsEstimated": 931,
+    "kelpEstimated": 255,
+    "snapperEstimated": 177,
+    "reefHealth": 0.55485
+  },
+  {
+    "id": "T002076",
+    "name": "Steel Urchin Mist",
+    "sponsorAmount": 6,
+    "urchinsEstimated": 633,
+    "kelpEstimated": 302,
+    "snapperEstimated": 222,
+    "reefHealth": 0.64365
+  },
+  {
+    "id": "T002078",
+    "name": "Silver Hoki Blaze",
+    "sponsorAmount": 84,
+    "urchinsEstimated": 640,
+    "kelpEstimated": 365,
+    "snapperEstimated": 287,
+    "reefHealth": 0.7048333333333334
+  },
+  {
+    "id": "T002159",
+    "name": "Steel Tide Drift",
+    "sponsorAmount": 93,
+    "urchinsEstimated": 506,
+    "kelpEstimated": 38,
+    "snapperEstimated": 39,
+    "reefHealth": 0.4615
+  },
+  {
+    "id": "T002162",
+    "name": "Bronze Driftwood Flicker",
+    "sponsorAmount": 88,
+    "urchinsEstimated": 579,
+    "kelpEstimated": 437,
+    "snapperEstimated": 116,
+    "reefHealth": 0.6215833333333334
+  },
+  {
+    "id": "T002243",
+    "name": "Silver Reef Veil",
+    "sponsorAmount": 7,
+    "urchinsEstimated": 959,
+    "kelpEstimated": 455,
+    "snapperEstimated": 290,
+    "reefHealth": 0.6859833333333334
+  },
+  {
+    "id": "T002244",
+    "name": "Copper Toroa Tide",
+    "sponsorAmount": 91,
+    "urchinsEstimated": 279,
+    "kelpEstimated": 224,
+    "snapperEstimated": 112,
+    "reefHealth": 0.6000166666666666
+  },
+  {
+    "id": "T002245",
+    "name": "Steel Glow Surge",
+    "sponsorAmount": 43,
+    "urchinsEstimated": 530,
+    "kelpEstimated": 203,
+    "snapperEstimated": 178,
+    "reefHealth": 0.6000666666666667
+  },
+  {
+    "id": "T002246",
+    "name": "Silver Reef Crest",
+    "sponsorAmount": 42,
+    "urchinsEstimated": 506,
+    "kelpEstimated": 428,
+    "snapperEstimated": 33,
+    "reefHealth": 0.5745
+  },
+  {
+    "id": "T002329",
+    "name": "Gold Rimu Sweep",
+    "sponsorAmount": 88,
+    "urchinsEstimated": 211,
+    "kelpEstimated": 329,
+    "snapperEstimated": 28,
+    "reefHealth": 0.5857166666666667
+  },
+  {
+    "id": "T002330",
+    "name": "Steel Glow Glade",
+    "sponsorAmount": 29,
+    "urchinsEstimated": 441,
+    "kelpEstimated": 230,
+    "snapperEstimated": 277,
+    "reefHealth": 0.6875166666666667
+  }
+]
