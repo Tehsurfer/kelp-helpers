@@ -1,69 +1,62 @@
-import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MapView from './MapView';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
-function App() {
-  const [popupInfo, setPopupInfo] = useState(null);
-  const [isClosing, setIsClosing] = useState(false);
-  const [selectedTileId, setSelectedTileId] = useState(null);
-
-  const handleClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setPopupInfo(null);
-      setIsClosing(false);
-    }, 300);
-  };
-
+function Home() {
   return (
-    <div>
-      <MapView
-        popupInfo={popupInfo}
-        setPopupInfo={setPopupInfo}
-        selectedTileId={selectedTileId}
-        setSelectedTileId={setSelectedTileId}
-      />
-      {popupInfo && (
-        <InfoPanel
-          info={popupInfo}
-          onClose={handleClose}
-          tileId={selectedTileId}
-          className={isClosing ? 'closing' : ''}
-        />
-      )}
-    </div>
+    <Container maxWidth="sm" sx={{ mt: 8 }}>
+      <Box sx={{ textAlign: 'center', mt: 4 }}>
+        <Typography variant="h3" component="h1" gutterBottom>
+          KH Simple Map Demo
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 3 }}>
+          Welcome to the KH Simple Map Demo! Use the navigation bar to view the interactive map.
+        </Typography>
+        <Button variant="contained" color="primary" component={Link} to="/map">
+          Go to Map
+        </Button>
+      </Box>
+    </Container>
   );
 }
 
-function InfoPanel({ info, onClose, tileId }) {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    'https://placehold.co/600x400/orange/white',
-    'https://placehold.co/600x400/red/blue',
-    'https://placehold.co/600x400/yellow/green'
-  ];
-
+function App() {
   return (
-    <div className="info-panel">
-      <button className="close-button" onClick={onClose}>&times;</button>
-      <h2>Tile ID: {tileId}</h2>
-      <p className="coordinates">Center: {info.lat.toFixed(4)}, {info.lng.toFixed(4)}</p>
-      <span className="tag">Sponsored</span>
-      <div className="spacer"></div>
-      <p className="description">
-        This is a placeholder paragraph describing the location. It can contain
-        interesting facts, historical information, or any relevant details about
-        the point of interest.
-      </p>
-      <div className="image-slider">
-        <img src={images[currentImage]} alt={`Slide ${currentImage + 1}`} />
-        <div className="slider-controls">
-          <button onClick={() => setCurrentImage((prev) => (prev > 0 ? prev - 1 : images.length - 1))}>&#10094;</button>
-          <button onClick={() => setCurrentImage((prev) => (prev < images.length - 1 ? prev + 1 : 0))}>&#10095;</button>
-        </div>
-      </div>
-      <button className="action-button">Learn More</button>
-    </div>
+    <Router>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            KH Simple Map Demo
+          </Typography>
+          <Button color="inherit" component={Link} to="/">Home</Button>
+          <Button color="inherit" component={Link} to="/map">Map</Button>
+        </Toolbar>
+      </AppBar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapViewWrapper />} />
+      </Routes>
+    </Router>
+  );
+}
+
+// Wrapper to provide required props to MapView
+function MapViewWrapper() {
+  const [popupInfo, setPopupInfo] = React.useState(null);
+  const [selectedTileId, setSelectedTileId] = React.useState(null);
+  return (
+    <MapView
+      popupInfo={popupInfo}
+      setPopupInfo={setPopupInfo}
+      selectedTileId={selectedTileId}
+      setSelectedTileId={setSelectedTileId}
+    />
   );
 }
 
