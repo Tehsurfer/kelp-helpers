@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import coastlineTiles from './data/coastline-tiles-with-data.json'
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
+import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
 
 function InfoPanel({ info, onClose, tileId, className }) {
@@ -30,17 +30,19 @@ function InfoPanel({ info, onClose, tileId, className }) {
       <p className="coordinates">Center: {info.lat.toFixed(4)}, {info.lng.toFixed(4)}</p>
       
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 1 }}>
-        <Chip
-          label="Sponsorship"
-          color="primary"
+        <Button
+          variant="contained"
+          color="secondary"
+          size="small"
           sx={{
             fontWeight: 'bold',
-            bgcolor: '#1976d2',
-            color: 'white',
-            px: 1.5,
+            px: 2,
             borderRadius: 1,
+            minWidth: 0,
           }}
-        />
+        >
+          Sponsorship
+        </Button>
         <Box sx={{ flex: 1, minWidth: 60 }}>
           <LinearProgress
             variant="determinate"
