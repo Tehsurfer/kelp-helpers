@@ -6,6 +6,10 @@ const path = require('path');
 const tiles = require('../src/data/coastline-tiles.js').default;
 const tileNames = require('./generated-tile-names.js').default;
 
+const MAX_URCHINS = 1000;
+const MAX_KELP = 500;
+const MAX_SNAPPER = 300;
+
 let tilesWithData = [];
 
 let tileIds = [];
@@ -17,9 +21,9 @@ tiles.features.forEach(tile => {
 
 tileIds.forEach((tileId, index) => {
   const tileName = tileNames[index];
-  const urchinsEstimated = Math.floor(Math.random() * 1000); // Random number of urchins
-  const kelpEstimated = Math.floor(Math.random() * 500); // Random number of kelp
-  const snapperEstimated = Math.floor(Math.random() * 300); // Random number of snapper
+  const urchinsEstimated = Math.floor(Math.random() * MAX_URCHINS); // Random number of urchins
+  const kelpEstimated = Math.floor(Math.random() * MAX_KELP); // Random number of kelp
+  const snapperEstimated = Math.floor(Math.random() * MAX_SNAPPER); // Random number of snapper
   const tileData = {
     id: tileId,
     name: tileName,
@@ -30,7 +34,7 @@ tileIds.forEach((tileId, index) => {
   };
 
   // Calculate reef health based on estimated populations
-  let h = -(urchinsEstimated / 1000 * 0.3) + kelpEstimated / 500 * 0.3 + snapperEstimated / 300 * 0.4
+  let h = -(urchinsEstimated / MAX_URCHINS * 0.3) + kelpEstimated / MAX_KELP * 0.3 + snapperEstimated / MAX_SNAPPER * 0.4
   let normH = (h + 1) / 2; // Normalize to 0-1 range
   tileData.reefHealth = normH;
   tilesWithData.push(tileData);
