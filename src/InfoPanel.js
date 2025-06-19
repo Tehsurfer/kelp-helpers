@@ -17,12 +17,6 @@ function InfoPanel({ info, onClose, tileId, className }) {
   const reefHealth = tileInfo.reefHealth ?? 0;
   const sponsorship = tileInfo.sponsorAmount ?? 0; // 0 to 1
 
-  const images = [
-    'https://placehold.co/600x400/orange/white',
-    'https://placehold.co/600x400/red/blue',
-    'https://placehold.co/600x400/yellow/green'
-  ];
-
   return (
     <div className={`info-panel${className ? ' ' + className : ''}`}>
       <button className="close-button" onClick={onClose}>&times;</button>
@@ -100,7 +94,7 @@ function InfoPanel({ info, onClose, tileId, className }) {
           autoPlay={false}
           sx={{ borderRadius: 2, overflow: 'hidden' }}
         >
-          {images.map((src, idx) => (
+          {tileInfo.imageUrls.map((src, idx) => (
             <Box key={idx} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 300, bgcolor: '#fafafa' }}>
               <img src={src} alt={`Slide ${idx + 1}`} style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'cover' }} />
             </Box>
