@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const apiUrl = `/api/tiles`;
+const apiBase = import.meta.env.VITE_REACT_APP_KH_API_URL || 'http://localhost:5000';
+const apiUrl = `${apiBase}/get-tile-data`;
 
 export default function useTilesData() {
   const [tilesData, setTilesData] = useState(null);
