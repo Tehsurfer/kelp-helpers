@@ -1,7 +1,16 @@
 import { useEffect, useState } from 'react';
 
-const apiBase = import.meta.env.VITE_REACT_APP_KH_API_URL || 'http://localhost:5000';
-const apiUrl = `${apiBase}/get-tile-data`;
+const mode = import.meta.env.VITE_REACT_APP_MODE || 'production';
+
+let apiUrl;
+
+if (mode === 'development') {
+  apiUrl = '/api/tiles'; // Use proxy in development
+  console.warn(`Using local API URL: ${apiUrl}`);
+} else {
+  const apiBase = import.meta.env.VITE_REACT_APP_KH_API_URL || 'http://localhost:5000';
+  apiUrl = `${apiBase}/get-tile-data`;
+}
 
 export default function useTilesData() {
   const [tilesData, setTilesData] = useState(null);

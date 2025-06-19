@@ -1,1 +1,1 @@
-web: npx serve -s dist
+web: NODE_ENV=production npx serve -s dist

@@ -19,12 +19,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
     "vite": "^6.3.5"
   },
   "scripts": {
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
+    "start:dev": "cross-env NODE_ENV=development npm start",
     "start": "vite",
     "test": "echo \"Testing is not configured for Vite yet\" && exit 0"
   },
