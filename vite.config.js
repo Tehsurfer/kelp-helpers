@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode, command }) => {
   // Only add proxy in dev mode
   let server = {};
-  if (mode === 'development') {
+  const nodeEnv = process.env.NODE_ENV || 'production';
+  if (nodeEnv === 'development') {
     const env = loadEnv(mode, process.cwd());
     const API_URL = env.VITE_REACT_APP_KH_API_URL || 'http://localhost:5000';
     server = {
