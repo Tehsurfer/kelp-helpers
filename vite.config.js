@@ -3,10 +3,19 @@ import react from '@vitejs/plugin-react';
 
 
 export default defineConfig(({ mode }) => {
-  // Load env variables for the current mode
-  const env = loadEnv(mode, process.cwd());
+  // Try to load env variables for the current mode
+  let env;
+  try {
+    env = loadEnv(mode, process.cwd());
+  } catch (e) {
+    env = {};
+  }
 
-  const API_URL = env.VITE_REACT_APP_KH_API_URL || 'http://localhost:5000';
+  // Prefer Vite env, fallback to process.env for Heroku/production
+  const API_URL =
+    env?.VITE_REACT_APP_KH_API_URL ||
+    process.env.VITE_REACT_APP_KH_API_URL ||
+    'https://kelp-helpers-api-5f809acc216a.herokuapp.com';
 
   return {
     plugins: [react()],
