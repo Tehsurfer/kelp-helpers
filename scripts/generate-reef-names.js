@@ -2,7 +2,7 @@
 const NUMBER_OF_TILES = 100; // Number of tiles to generate names for
 
 // Generate reef names based on the provided data structure
-let dd = require('tile-names-for-generation.js');
+let dd = require('./tile-names-for-generation.js').default;
 let tileNames = []
 for (let i = 0; i < dd.prefix.length; i++) {
   for (let j = 0; j < dd.base.length; j++) {
@@ -18,7 +18,11 @@ tileNames.sort(() => Math.random() - 0.5);
 
 // Select the first NUMBER_OF_TILES names
 let selectedNames = tileNames.slice(0, NUMBER_OF_TILES);
-console.log('Selected Reef Names:');
-console.log(selectedNames);
+
+// Write the generated names to a JSON file
+const fs = require('fs');
+const path = require('path');
+const outputPath = path.join(__dirname, 'generated-tile-names.js');
+fs.writeFileSync(outputPath, `export default ${JSON.stringify(selectedNames, null, 2)};`, 'utf8');
 
 
