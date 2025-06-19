@@ -2,29 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import InfoPanel from './InfoPanel';
 import coastlineTiles from './data/coastline-tiles';
+import useTilesData from './useTilesData';
 
 mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
 const dataGateWayURL = import.meta.env.VITE_REACT_APP_DATA_GATEWAY_URL;
-
-const makeApiRequest = async (payload) => {
-  try {
-    const queryString = new URLSearchParams(payload).toString();
-    const urlWithParams = `${dataGateWayURL}?${queryString}`;
-    const response = await fetch(urlWithParams, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      }
-    });
-
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.json();
-    console.log('Success:', data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
 
 // Helper to create 100m x 100m grid in degrees
 function generateGrid(bounds, spacing = 100) {
@@ -93,6 +74,8 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [gridData, setGridData] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
+  const apiUrl = '/api/tiles'; 
+  const { tilesData, loading, error } = useTilesData(apiUrl);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -102,9 +85,6 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
     }, 300); // adjust for CSS animation duration if needed
   };
 
-  useEffect(() => {
-    makeApiRequest({ action: 'test', user: '123' });
-  }, []);
 
   useEffect(() => {
     if (map.current) return;
@@ -279,6 +259,9 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
           onClose={handleClose}
           tileId={selectedTileId}
           className={isClosing ? 'closing' : ''}
+          tilesData={tilesData}
+          loading={loading}
+          error={error}
         />
       )}
     </div>

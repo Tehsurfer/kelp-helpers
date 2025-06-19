@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import coastlineTiles from './data/coastline-tiles-with-data.json'
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
 
-function InfoPanel({ info, onClose, tileId, className }) {
+function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   // Get info for the tile
   function getTileInfo(tileId) {
-    return coastlineTiles.find(tile => tile.id === tileId) || {};
+    if (!tilesData) return {};
+    return tilesData.find(tile => tile.id === tileId) || {};
   }
 
+  if (loading) return <div className={`info-panel${className ? ' ' + className : ''}`}>Loading...</div>;
+  if (error) return <div className={`info-panel${className ? ' ' + className : ''}`}>Error loading data.</div>;
+
   const tileInfo = getTileInfo(tileId);
-  const reefHealth = tileInfo.reefHealth ?? 0;
-  const sponsorship = tileInfo.sponsorAmount ?? 0; // 0 to 1
+  const reefHealth = Number(tileInfo.reefHealth ?? 0);
+  // Ensure sponsorship is a number between 0 and 100
+  const sponsorship = Number(tileInfo.sponsorAmount ?? 0);
 
   return (
     <div className={`info-panel${className ? ' ' + className : ''}`}>
@@ -94,7 +98,7 @@ function InfoPanel({ info, onClose, tileId, className }) {
           autoPlay={false}
           sx={{ borderRadius: 2, overflow: 'hidden' }}
         >
-          {tileInfo.imageUrls.map((src, idx) => (
+          {(tileInfo.images || []).map((src, idx) => (
             <Box key={idx} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 300, bgcolor: '#fafafa' }}>
               <img src={src} alt={`Slide ${idx + 1}`} style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'cover' }} />
             </Box>
