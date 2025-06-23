@@ -33,10 +33,12 @@ function App() {
             <Button color="inherit" component={Link} to="/map">Map</Button>
           </Toolbar>
         </AppBar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/map" element={<MapViewWrapper />} />
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/map" element={<MapViewWrapper />} />
+          </Routes>
+        </div>
       </Router>
     </ThemeProvider>
   );

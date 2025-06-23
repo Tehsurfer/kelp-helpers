@@ -1,0 +1,110 @@
+.info-panel {
+  position: fixed;
+  background: #fff;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  z-index: 100;
+}
+
+.info-panel-title {
+  color: red;
+  font-weight: bold;
+}
+
+
+.sponsorship-percentage { min-width: 32px; font-size: 13px; margin-left: 6px; }
+
+.reef-health-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-box {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.carousel-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: #fafafa;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.sponsorship-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.sponsorship-button {
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.sponsorship-progress-box {
+  flex: 1;
+  min-width: 60px;
+}
+
+.sponsorship-progress {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background-color: #e3e3e3 !important;
+}
+.sponsorship-progress .MuiLinearProgress-bar {
+  background-color: #1976d2 !important;
+}
+
+.reef-health-box {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.reef-health-progress {
+  height: 10px !important;
+  border-radius: 5px !important;
+  background-color: #eee !important;
+}
+.reef-health-progress.healthy .MuiLinearProgress-bar {
+  background-color: green !important;
+}
+.reef-health-progress.unhealthy .MuiLinearProgress-bar {
+  background-color: red !important;
+}
+
+.carousel-root {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+@media (min-width: 601px) {
+  .info-panel {
+    width: 400px;
+    left: calc(50% - 200px);
+    bottom: 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-panel {
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+

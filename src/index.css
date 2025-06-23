@@ -1,4 +1,32 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Desktop/tablet overrides */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  .container {
+    width: 750px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    padding: 3rem;
+  }
+}
+
+
 body {
+  font-size: 16px;
+  padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

@@ -7,7 +7,24 @@ import Box from '@mui/material/Box';
 
 function Home() {
   return (
-    <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <Box
+      sx={{
+        position: 'relative',
+        minHeight: '100vh',
+        overflow: 'hidden',
+        padding: 2, // mobile first
+        fontSize: '1rem',
+        backgroundColor: 'transparent',
+        '@media (min-width:768px)': {
+          padding: 4,
+          fontSize: '1.25rem',
+        },
+        '@media (min-width:1200px)': {
+          padding: 6,
+          fontSize: '1.5rem',
+        },
+      }}
+    >
       {/* Background video */}
       <video
         autoPlay

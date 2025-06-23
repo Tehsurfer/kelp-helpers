@@ -258,7 +258,7 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
           info={popupInfo}
           onClose={handleClose}
           tileId={selectedTileId}
-          className={isClosing ? 'closing' : ''}
+          className={isClosing ? 'closing' : 'info-panel'}
           tilesData={tilesData}
           loading={loading}
           error={error}
