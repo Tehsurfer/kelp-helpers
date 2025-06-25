@@ -3,6 +3,9 @@ import mapboxgl from 'mapbox-gl';
 import InfoPanel from './InfoPanel';
 import coastlineTiles from './data/coastline-tiles';
 import useTilesData from './useTilesData';
+import Snackbar from '@mui/material/Snackbar';
+import CropSquareIcon from '@mui/icons-material/CropSquare';
+import Alert from '@mui/material/Alert';
 
 mapboxgl.accessToken = import.meta.env.VITE_REACT_APP_MAPBOX_TOKEN;
 const dataGateWayURL = import.meta.env.VITE_REACT_APP_DATA_GATEWAY_URL;
@@ -81,6 +84,7 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [gridData, setGridData] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [showHint, setShowHint] = useState(true);
   const apiUrl = '/api/tiles'; 
   const { tilesData, loading, error } = useTilesData(apiUrl);
 
@@ -258,6 +262,18 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {/* Snackbar hint */}
+      <Snackbar
+        open={showHint}
+        autoHideDuration={4000}
+        onClose={() => setShowHint(false)}
+        className='hint-snackbar'
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert onClose={() => setShowHint(false)} severity="info" sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+          Select a hectare <CropSquareIcon fontSize="small" sx={{ mx: 0.5, verticalAlign: 'middle' }} /> to learn more about the reef health at that location!
+        </Alert>
+      </Snackbar>
       <div className='lat-long-info'
       >
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}

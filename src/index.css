@@ -178,3 +178,8 @@ code {
 .action-button:hover {
   background-color: #0056b3;
 }
+
+.hint-snackbar {
+  margin-top: 64px;
+  animation: fadeInOut 3s ease-in-out;
+}

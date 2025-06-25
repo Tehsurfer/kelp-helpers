@@ -4,10 +4,12 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
 import { Link } from 'react-router-dom';
+import { useTileContext } from './TileContext';
 import './Infopanel.css';
 
 function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error }) {
   const [currentImage, setCurrentImage] = useState(0);
+  const { setTileOfInterest } = useTileContext();
 
   // Get info for the tile
   function getTileInfo(tileId) {
@@ -23,6 +25,10 @@ function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error
   // Ensure sponsorship is a number between 0 and 100
   const sponsorship = Number(tileInfo.sponsorAmount ?? 0);
 
+  const handleSponsorClick = () => {
+    setTileOfInterest(tileInfo);
+  };
+
   return (
     <div className={`info-panel${className ? ' ' + className : ''}`}>
       <button className="close-button" onClick={onClose}>&times;</button>
@@ -37,6 +43,7 @@ function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error
           className="sponsorship-button"
           component={Link}
           to="/sponsor"
+          onClick={handleSponsorClick}
         >
           Sponsorship
         </Button>

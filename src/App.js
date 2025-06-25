@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { kelpGreen } from './colours';
+import { TileProvider } from './TileContext';
 
 const theme = createTheme({
   palette: {
@@ -25,29 +26,31 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <AppBar position="static" sx={{ bgcolor: kelpGreen }} className='app-bar'>
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Kelp Helpers
-            </Typography>
-            <Button color="inherit" component={Link} to="/">Home</Button>
-            <Button color="inherit" component={Link} to="/map">Map</Button>
-            <Button color="inherit" component={Link} to="/sponsor">Sponsor</Button>
-            <Button color="inherit" component={Link} to="/reef-rescue">
-              Play
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/map" element={<MapViewWrapper />} />
-            <Route path="/sponsor" element={<SponsorPage />} />
-            <Route path="/reef-rescue" element={<ReefRescueGame />} />
-          </Routes>
-        </div>
-      </Router>
+      <TileProvider>
+        <Router>
+          <AppBar position="static" sx={{ bgcolor: kelpGreen }} className='app-bar'>
+            <Toolbar>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Kelp Helpers
+              </Typography>
+              <Button color="inherit" component={Link} to="/">Home</Button>
+              <Button color="inherit" component={Link} to="/map">Map</Button>
+              <Button color="inherit" component={Link} to="/sponsor">Sponsor</Button>
+              <Button color="inherit" component={Link} to="/reef-rescue">
+                Play
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/map" element={<MapViewWrapper />} />
+              <Route path="/sponsor" element={<SponsorPage />} />
+              <Route path="/reef-rescue" element={<ReefRescueGame />} />
+            </Routes>
+          </div>
+        </Router>
+      </TileProvider>
     </ThemeProvider>
   );
 }
