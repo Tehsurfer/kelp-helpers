@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
 import { Link } from 'react-router-dom';
-import './InfoPanel.css';
+import './infopanel.css';
 
 function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error }) {
   const [currentImage, setCurrentImage] = useState(0);
