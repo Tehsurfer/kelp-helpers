@@ -65,6 +65,13 @@ function sample5Points(polygon) {
   ];
 }
 
+const hideMapboxControls = () => {
+  const mapboxLogo = document.querySelector('.mapboxgl-control-container');
+  if (mapboxLogo) {
+    mapboxLogo.style.display = 'none';
+  }
+}
+
 function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -105,6 +112,9 @@ function MapView({ popupInfo, setPopupInfo, selectedTileId, setSelectedTileId })
     });
 
     map.current.on('load', async () => {
+
+      hideMapboxControls();
+
       // Try to load from saved data first
       let filteredGrid = null;
       const presetCoastTiles = coastlineTiles
