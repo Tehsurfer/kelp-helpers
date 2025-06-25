@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MapView from './MapView';
 import Home from './Home';
+import SponsorPage from './SponsorPage';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -31,12 +32,14 @@ function App() {
             </Typography>
             <Button color="inherit" component={Link} to="/">Home</Button>
             <Button color="inherit" component={Link} to="/map">Map</Button>
+            <Button color="inherit" component={Link} to="/sponsor">Sponsor</Button>
           </Toolbar>
         </AppBar>
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/map" element={<MapViewWrapper />} />
+            <Route path="/sponsor" element={<SponsorPage />} />
           </Routes>
         </div>
       </Router>

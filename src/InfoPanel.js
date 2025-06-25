@@ -3,6 +3,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Carousel from 'react-material-ui-carousel';
+import { Link } from 'react-router-dom'; // Add this import
 import './InfoPanel.css';
 
 function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error }) {
@@ -34,6 +35,8 @@ function InfoPanel({ info, onClose, tileId, className, tilesData, loading, error
           color="secondary"
           size="small"
           className="sponsorship-button"
+          component={Link}
+          to="/sponsor"
         >
           Sponsorship
         </Button>
