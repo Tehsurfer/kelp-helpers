@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MapView from './MapView';
 import Home from './Home';
 import SponsorPage from './SponsorPage';
+import ReefRescueGame from './ReefRescueGame';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -33,6 +34,9 @@ function App() {
             <Button color="inherit" component={Link} to="/">Home</Button>
             <Button color="inherit" component={Link} to="/map">Map</Button>
             <Button color="inherit" component={Link} to="/sponsor">Sponsor</Button>
+            <Button color="inherit" component={Link} to="/reef-rescue">
+              Play
+            </Button>
           </Toolbar>
         </AppBar>
         <div className="container">
@@ -40,6 +44,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/map" element={<MapViewWrapper />} />
             <Route path="/sponsor" element={<SponsorPage />} />
+            <Route path="/reef-rescue" element={<ReefRescueGame />} />
           </Routes>
         </div>
       </Router>
